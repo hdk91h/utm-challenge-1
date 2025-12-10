@@ -20,8 +20,8 @@ This application is a command-line tool developed to parse, analyze, and report 
 
 1. **Clone the repository**
    ```bash
-   git clone git@github.com:hdk91h/utm-challenge.git
-   cd utm-challenge
+   git clone git@github.com:hdk91h/utm-challenge-1.git
+   cd utm-challenge-1
    ```
 
 2. **Install dependencies**
