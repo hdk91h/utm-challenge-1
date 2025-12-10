@@ -5,7 +5,7 @@
     "license": "mit",
     "autoload": {
         "psr-4": {
-            "Haustein\\UtmLogAnalyzer\\": "src/"
+            "App\\": "src/"
         }
     },
     "require-dev": {
