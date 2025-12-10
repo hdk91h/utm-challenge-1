@@ -14,32 +14,30 @@ class LogAnalyzer
     /**
      * Logeinträge analysieren
      */
-    public function analyze(array $entries): void
+    public function analyze(LogEntry $entry): void
     {
 
-        foreach ($entries as $entry) {
-            $serial = $entry->serial;
+        $serial = $entry->serial;
 
-            if ($serial === 'UNKNOWN') {
-                continue;
-            }
-
-            if (!isset($this->accessCounts[$serial])) {
-                $this->accessCounts[$serial] = 0;
-            }
-
-            $this->accessCounts[$serial]++;
-
-            $mac = $entry->mac;
-
-            if ($mac !== 'UNKNOWN') {
-                $this->serialToMacs[$serial][$mac] = true;
-            }
-
-            $hwClass = $entry->specs['cpu'] ?? 'UNKNOWN';
-
-            $this->hardwareClasses[$hwClass][$serial] = true;
+        if ($serial === 'UNKNOWN') {
+            return;
         }
+
+        if (!isset($this->accessCounts[$serial])) {
+            $this->accessCounts[$serial] = 0;
+        }
+
+        $this->accessCounts[$serial]++;
+
+        $mac = $entry->mac;
+
+        if ($mac !== 'UNKNOWN') {
+            $this->serialToMacs[$serial][$mac] = true;
+        }
+
+        $hwClass = $entry->specs['cpu'] ?? 'UNKNOWN';
+
+        $this->hardwareClasses[$hwClass][$serial] = true;
     }
 
     /**
