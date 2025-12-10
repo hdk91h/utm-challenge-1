@@ -6,3 +6,5 @@
 /data/*.log
 composer.lock
 .env
+tests/test_reader.php
+tests/test_parser.php
