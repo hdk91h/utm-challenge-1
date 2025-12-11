@@ -4,6 +4,9 @@ namespace App\Service;
 
 use TCPDF;
 
+/**
+ * PdfReportGenerator Service erstellt PDF-Berichte aus den analysierten Logdaten.
+ */
 class PdfReportGenerator
 {
     public function generate(array $data, string $outputPath): void

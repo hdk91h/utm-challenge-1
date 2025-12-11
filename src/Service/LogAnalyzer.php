@@ -4,6 +4,10 @@ namespace App\Service;
 
 use App\Model\LogEntry;
 
+/**
+ * LogAnalyzer Service sammelt aus einzelnen LogEntry-Objekten einfache Statistiken. Wie oft eine Seriennummer auftrit,
+ * welche Mac-Adressen mit welcher Seriennummer verbunden ist und welche Seriennummer zu welcher Hardware gehört.
+ */
 class LogAnalyzer
 {
     private array $accessCounts = [];

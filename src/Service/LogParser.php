@@ -4,6 +4,9 @@ namespace App\Service;
 
 use App\Model\LogEntry;
 
+/**
+ * LogParser Service parsed die Logzeilen und erstellt LogEntry-Objekte. Außerdem werden Metadaten extrahiert und Specs decodiert.
+ */
 class LogParser
 {
 

@@ -2,6 +2,9 @@
 
 namespace App\Service;
 
+/**
+ * LogReader Service liest Logdateien zeilenweise ein.
+ */
 class LogReader
 {
     private string $filePath;
