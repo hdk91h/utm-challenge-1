@@ -4,7 +4,8 @@ namespace App\Service;
 
 use App\Service\LogParser;
 use App\Service\LogAnalyzer;
-use App\Service\PdfReportGenerator;
+use App\Interfaces\ReportGeneratorInterface;
+
 
 /**
  * LogRunner Service koordiniert das Einlesen, Parsen, Analysieren der Logs und die Berichtserstellung.
@@ -14,18 +15,18 @@ class LogRunner
     private LogParser $parser;
     private LogAnalyzer $analyzer;
     private LogReader $reader;
-    private PdfReportGenerator $pdfGenerator;
+    private ReportGeneratorInterface $generator;
 
     public function __construct(
         LogParser $parser,
         LogAnalyzer $analyzer,
         LogReader $reader,
-        PdfReportGenerator $pdfGenerator
+        ReportGeneratorInterface $generator
     ) {
         $this->parser = $parser;
         $this->analyzer = $analyzer;
         $this->reader = $reader;
-        $this->pdfGenerator = $pdfGenerator;
+        $this->generator = $generator;
     }
 
     public function run(string $inputFile, string $outputPdf): void
@@ -62,7 +63,7 @@ class LogRunner
             'hardware' => $hardwareStats
         ];
 
-        $this->pdfGenerator->generate($reportData, $outputPdf);
+        $this->generator->generate($reportData, $outputPdf);
     }
 
     public function printReport(array $accessors, array $violaators, array $hardwareStats): void
